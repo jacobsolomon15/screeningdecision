@@ -1,0 +1,137 @@
+[data-toggle="buttons"] > .btn > input[type="radio"],
+[data-toggle="buttons"] > .btn > input[type="checkbox"] {
+clip: rect(1px, 1px, 1px, 1px);
+pointer-events: none;
+}
+
+@media (max-width: 767px) {
+    .navbar-brand {
+        font-size: 10px !important;
+    }
+}
+
+/* Fix the axis styling */
+.axis path,
+.axis line {
+    fill: none;
+    stroke: black;
+    shape-rendering: crispEdges;
+}
+
+.axis text {
+    font-family: sans-serif;
+    font-size: 11px;
+}
+
+/*.tipping-point-line line {
+  fill:none;
+  stroke: black;
+  stroke-width: 2;
+}*/
+
+svg:line {
+  pointer-events:all;
+}
+
+.harm {
+    background-color: #d95f02;
+}
+
+.benefit {
+    background-color: #1b9e77;
+}
+
+.legend-color-block {
+    height: 15px;
+}
+
+/*.age_form {
+  width: 145px;
+}*/
+
+
+/* Styling the points */
+
+.point {
+    stroke: black;
+}
+
+.harm {
+    fill:#d95f02;
+}
+
+.benefit {
+    fill:#1b9e77;
+}
+
+.benefit-heading {
+    color: #1b9e77;
+}
+
+.harm-heading {
+    color: #d95f02;
+}
+
+/* some spacing for inputs and labels */
+.cushion {
+    margin: 2px auto;
+}
+
+.input-heading {
+    text-align: center;
+}
+
+.graph-type-nav {
+    margin-bottom: 10px;
+}
+
+.popover-title {
+    color: black;
+}
+
+.popover-content {
+    color: black;
+}
+
+.explanation-list {
+    margin-top: 5px;
+}
+
+.intro-paragraph{
+    text-align: center;
+}
+
+.widthified{
+    max-width: 768px;
+}
+
+.citations {
+    padding-left: 0;
+}
+
+.citations li {
+    list-style-type: none;
+    margin-bottom: 10px;
+    padding-left: 0;
+}
+
+.pub-title {
+    font-weight: bold;
+}
+
+
+.legend-row {
+    margin: 5px 4px;
+}
+
+.sep {
+    height: 50px;
+}
+
+.form_p {
+    line-height: 2em;
+}
+
+.info-popover:hover {
+    cursor: pointer;
+}
