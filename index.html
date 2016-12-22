@@ -111,7 +111,7 @@
         <div class="bg-filter sTop">
             <div class="container">
                 <div class="jumbotron trn v-center">
-                    <h1>Colonoscopy Screening Decision Aid</h1>
+                    <h1>Should My Patient Get A Screening Colonoscopy?</h1>
                     <div class="space-sm"></div>
                     <p>See personalized risk and benefit estimates for colonoscopy screening.
                     </p>
@@ -187,13 +187,12 @@
                     </div>
                 </div>
                 </div>
-            </div>
             <div class="row inputs">
                 <div class="col-xs-12 col-sm-10 col-md-8 col-lg-8 col-sm-offset-1 col-md-offset-2 col-lg-offset-2">
                 <div class="square">
                     <form id="graph-inputs">
                     <p class="lead form_p">
-                        This graph shows data for a
+                        This graph above shows data for a
                                 <span>
                                     <select class="selectpicker" id="graph-race" name="race">
                                         <option value="0">
@@ -240,8 +239,15 @@
                                             Severe comorbidities
                                         </option>
                                     </select>
-                                </span>
+                                <a class="comorbidity-popover" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-html="true"><i class="fa fa-question-circle-o" aria-hidden="true" style="font-size:inherit"></i></a>
+                            </span>
                             </p>
+                            <div class="comorbidity-popover-content hide">
+                                <p class="popover-content-inside-square" style="color:black">
+                                    <strong>Moderate comorbidities</strong> include history of peptic ulcer disease, rheumatologic disease, peripheral vascular disease, diabetes, paralysis, cerebrovascular disease, or acute myocardial infarction </br></br>
+                                    <strong>Severe comorbidities</strong> include chronic obstructive pulmonary disease, congestive heart failure, moderate or severe liver disease, chronic renal failure, dementia, cirrhosis and chronic hepatitis, or AIDS
+                                </p>
+                            </div>
                             <p>
                                 Adjust these individual characteristics to see personalized estimates.
                             </p>
@@ -249,35 +255,36 @@
                 </div>
             </div>
         </div>
+    </div>
 
     </section>
-    <div class="sep" id='table'></div>
-    <section class="section table-section">
+    <div class="sep bg-dark" id='table'></div>
+    <section class="section table-section bg-grey">
         <div class="container" id="table-container">
             <div class='col-xs-12 col-sm-10 col-md-8 col-lg-8 col-sm-offset-1 col-md-offset-2 col-lg-offset-2'>
     <div class="row">
     <table class="table table-stripped">
       <thead>
-        <th>Outcome</th>
+        <th>Events per 1000 screenings</th>
         <th class="col-md-2">Your patient</th>
         <th class="col-md-2">Low Benefit patient
-        <a class="info-popover" data-trigger="hover" data-toggle="popover" data-placement="bottom" data-content="85 year old patients with a previous screening 10 years ago and moderate comorbidities will recieve very little benefit from screening."><i class="fa fa-question-circle-o" aria-hidden="true"></i></a></th>
+        <a class="info-popover" data-trigger="hover" data-toggle="popover" data-placement="bottom" data-content="An 85 year old patient with a prior screening colonoscopy 10 years ago and moderate comorbidities will recieve very little benefit from screening."><i class="fa fa-question-circle-o" aria-hidden="true"></i></a></th>
         <th class="col-md-2">High Benefit patient
-        <a class="info-popover" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="66 year old patients who have never been screened and have no comorbidities will greatly benefit from screening."><i class="fa fa-question-circle-o" aria-hidden="true"></i></a>
+        <a class="info-popover" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="A 66 year old who has never been screened and has no comorbidities will greatly benefit from screening."><i class="fa fa-question-circle-o" aria-hidden="true"></i></a>
         </th>
         <th class="col-md-2">Guideline patient
           <a class="info-popover" data-toggle="popover" data-trigger="hover" data-placement="left" data-content="A 75 year old with a prior screening and moderate comorbidities is the threshold example for when to stop screening. Current guidelines would recommend screening this patient but not anyone older."><i class="fa fa-question-circle-o" aria-hidden="true"></i></a>
         </th>
       </thead>
       <tr>
-        <td>Cases Prevented / 1000 Screenings:</td>
+        <td>Cases Prevented</td>
         <td><span class="table-cell cases_prevent patient"></span></td>
         <td><span class="table-cell cases_prevent never"></span></td>
         <td><span class="table-cell cases_prevent guideline"></span></td>
         <td><span class="table-cell cases_prevent always"></span></td>
       </tr>
       <tr>
-        <td>Deaths Prevented / 1000 Screenings:</td>
+        <td>Deaths Prevented</td>
         <td><span class="table-cell deaths_prevent patient"></span></td>
         <td><span class="table-cell deaths_prevent never"></span></td>
         <td><span class="table-cell deaths_prevent guideline"></span></td>
@@ -310,7 +317,7 @@
             <div class="square">
                 <form id="table-inputs">
                 <p class="lead form_p">
-                    This graph shows data for a
+                    The table above shows data for a
                             <span>
                                 <select class="selectpicker" id="table-age" name="age">
                                     <option value="66">66</option>
@@ -391,7 +398,7 @@
 
     </section>
 
-    <div class="sep" id="glossary"></div>
+    <div class="sep bg-dark" id="glossary"></div>
     <section class="section">
         <div class="container">
             <div class="modal-body">
@@ -407,13 +414,13 @@
                         High Benefit Patient
                     </dt>
                     <dd>
-                        66 year old patients who have never been screened and have no comorbidities will greatly benefit from screening.
+                        A 66 year old who has never been screened and has no comorbidities will greatly benefit from screening.
                     </dd>
                     <dt>
                         Low Benefit Patient
                     </dt>
                     <dd>
-                        85 year olds with a previous screening 10 years ago and moderate comorbidities will recieve very little benefit from screening.
+                        An 85 year old with a prior screening colonoscopy 10 years ago and moderate comorbidities will recieve very little benefit from screening.
                     </dd>
                     <dt>
                         Moderate Comorbidities
@@ -444,8 +451,8 @@
         </div>
     </section>
 
-    <div class="sep" id="about"></div>
-    <section class="section">
+    <div class="sep bg-dark" id="about"></div>
+    <section class="section bg-grey-2">
         <div class="container">
             <div class="modal-body">
               <h2>About this site</h2>
@@ -569,6 +576,13 @@
         html:true,
         content: function (){
             return $('.complications-popover-content').html();
+        }
+    });
+
+    $('.comorbidity-popover').popover({
+        html:true,
+        content: function (){
+            return $('.comorbidity-popover-content').html();
         }
     });
 

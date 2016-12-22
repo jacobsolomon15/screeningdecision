@@ -135,3 +135,9 @@ svg:line {
 .info-popover:hover {
     cursor: pointer;
 }
+
+.popover-content-inside-square {
+    font-size:.75em;
+    color:black;
+    line-height: 1em;
+}
