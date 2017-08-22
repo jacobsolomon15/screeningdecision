@@ -228,7 +228,7 @@
                                     </select>
                                 </span>, <br />
                                 <span>
-                                    and has <select class="selectpicker" id="graph-comorbidity" name="comorbidity">
+                                    has <select class="selectpicker" id="graph-comorbidity" name="comorbidity">
                                         <option value="0">
                                             No comorbidities
                                         </option>
@@ -240,6 +240,20 @@
                                         </option>
                                     </select>
                                 <a class="comorbidity-popover" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-html="true"><i class="fa fa-question-circle-o" aria-hidden="true" style="font-size:inherit"></i></a>
+                            </span>,
+                            <span>
+                                and has <select class="selectpicker" id="graph-rr" name="rr">
+                                    <option value="0.50">
+                                        Below Average
+                                    </option>
+                                    <option value="1.00">
+                                        Average
+                                    </option>
+                                    <option value="3.00">
+                                        Above Average
+                                    </option>
+                                </select>
+                                background cancer risk.
                             </span>
                             </p>
                             <div class="comorbidity-popover-content hide">
@@ -378,7 +392,7 @@
                                 </select>
                             </span>, <br />
                             <span>
-                                and has <select class="selectpicker" id="table-comorbidity" name="comorbidity">
+                                has <select class="selectpicker" id="table-comorbidity" name="comorbidity">
                                     <option value="0">
                                         No comorbidities
                                     </option>
@@ -389,6 +403,20 @@
                                         Severe comorbidities
                                     </option>
                                 </select>
+                            ,</span>
+                            <span>
+                                and has <select class="selectpicker" id="graph-rr" name="rr">
+                                    <option value="0.50">
+                                        Below Average
+                                    </option>
+                                    <option value="1.00">
+                                        Average
+                                    </option>
+                                    <option value="3.00">
+                                        Above Average
+                                    </option>
+                                </select>
+                                background cancer risk.
                             </span>
                         </p>
                 </form>

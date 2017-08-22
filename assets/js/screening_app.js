@@ -59,7 +59,7 @@ $(document).ready(function(){
 
     // Create an 'any' complications category
     _.each(full_data, function(row){
-      row['any'] = row['cardio'] + row['serious_gi'] + row['other_gi'];
+      row['any'] = parseFloat(row['cardio']) + parseFloat(row['serious_gi']) + parseFloat(row['other_gi']);
     });
 
     $('[data-toggle="popover"]').popover({
@@ -215,91 +215,6 @@ function buildLineGraph(){
         .attr('class', 'benefitline')
         .attr('data-legend', benefitvar);
 
-
-    // add anchor cases
-    // prepAnchorData();
-    // guideline_case = _.findWhere(anchors, {patient_type: 'guideline'});
-    // svg.append("line")
-    //   .style('stroke', harmcolor)
-    //   .style('stroke-dasharray', '4,4')
-    //   .attr('x1', xScale(66))
-    //   .attr('x2', xScale(85))
-    //   .attr('y1', yScale(guideline_case[harmvar]))
-    //   .attr('y2', yScale(guideline_case[harmvar]))
-    //   .attr('class', 'guideline_harm');
-    //
-    // svg.append("line")
-    //   .style('stroke', benefitcolor)
-    //   .style('stroke-dasharray', '4,4')
-    //   .attr('x1', xScale(66))
-    //   .attr('x2', xScale(85))
-    //   .attr('y1', yScale(guideline_case[benefitvar]))
-    //   .attr('y2', yScale(guideline_case[benefitvar]))
-    //   .attr('class', 'guideline_benefit');
-
-
-    // add the legend
-    // var legend = d3.select('.line-legend')
-    //     .append('svg')
-    //     .attr('height', 60)
-    //     .attr('width', width);
-    //
-    // var colorscale = d3.scale.ordinal()
-    //     .domain([outcomes[harmvar], outcomes[benefitvar]])
-    //     .range([harmcolor, benefitcolor]);
-    //
-    // legend.append('g')
-    //     .attr('class', 'colorlegend')
-    //     .attr('transform', "translate(" + (width*.25) + ","+ padding + ")");
-    //
-    // var colorlegend = d3.legend.color()
-    //     .scale(colorscale);
-    //
-    // legend.select('.colorlegend')
-    //     .call(colorlegend);
-    //
-    // legend.select('.colorlegend')
-    //   .append('g')
-    //   .attr('class', 'guideline_legend');
-
-    // legend.append('g')
-    //   .attr('class', 'guideline_legend')
-    //   .attr('transform', "translate(" + (width*.25) + ","+ 5*padding +")");
-
-    // legend.select('.guideline_legend')
-    //   .append('line')
-    //   .attr('x1', 0)
-    //   .attr('x2', 20)
-    //   .attr('y1', 40)
-    //   .attr('y2', 40)
-    //   .style('stroke-dasharray', '4,4')
-    //   .style('stroke', 'black')
-    //   .style('stroke-width', '2');
-    //
-    // legend.select('.guideline_legend')
-    //   .append('text')
-    //   .attr('x', 25)
-    //   .attr('y', 45)
-    //   .attr('class', 'label')
-    //   .text('Guideline patient');
-
-
-    // var symbolScale = d3.scale.ordinal()
-    //     .domain([patients['always'], patients['guideline'], patients['never']])
-    //     .range([d3.svg.symbol().type(always_shape)(),
-    //             d3.svg.symbol().type(guideline_shape)(),
-    //             d3.svg.symbol().type(never_shape)()]);
-    //
-    // legend.append('g')
-    //     .attr('class', 'shapelegend')
-    //     .attr('transform', 'translate(' + (width*.75) + ','+padding+')');
-    //
-    // var shapelegend = d3.legend.symbol()
-    //     .scale(symbolScale);
-    //
-    // legend.select('.shapelegend')
-    //     .call(shapelegend);
-
 }
 
 
@@ -325,6 +240,7 @@ function makeInputsIdString(ins) {
     var gender = _.findWhere(ins, {'name': 'gender'})['value'];
     var history = _.findWhere(ins, {'name': "history"})['value'];
     var comorbidity = _.findWhere(ins, {'name': 'comorbidity'})['value'];
+    var rr = _.findWhere(ins, {'name': 'rr'})['value'];
 
     // convert 0's and 1's to letters as used in the input ids
     if (race == 0) {
@@ -339,7 +255,7 @@ function makeInputsIdString(ins) {
       gender = "M";
     }
 
-    var inputsIdString = race+gender+'_#_'+history+'_'+comorbidity+'_1.00';
+    var inputsIdString = race+gender+'_#_'+history+'_'+comorbidity+'_'+rr;
     return inputsIdString;
 
 }
@@ -416,33 +332,12 @@ function updateLineGraph() {
 
 
     prepAnchorData();
-    // var anchorpoints = d3.selectAll(".point");
-    //
-    // anchorpoints
-    //     .data(anchordata)
-    //     .transition()
-    //     .attr("transform", function(d){
-    //        return "translate(" + xScale(d.age)+","+yScale(d.y)+")";
-    //     });
 
-
-
-    //update legend
-    // var colorscale = d3.scale.ordinal()
-    //     .domain([outcomes[harmvar], outcomes[benefitvar]])
-    //     .range([harmcolor, benefitcolor]);
-    //
-    // var colorlegend = d3.legend.color()
-    //     .scale(colorscale);
-    //
-    // d3.select('.colorlegend')
-    //     .call(colorlegend);
 }
 
 function setAnchors() {
 
     var graph_ins = $("#graph-inputs").serializeArray();
-    console.log(graph_ins);
 
     var race = _.findWhere(graph_ins, {'name': 'race'})['value'];
     var gender = _.findWhere(graph_ins, {'name': 'gender'})['value'];
@@ -452,7 +347,8 @@ function setAnchors() {
       {'name': 'history', 'value': 0},
       {'name': 'comorbidity', 'value': 0},
       {'name': 'race', 'value': race},
-      {'name': 'gender', 'value': gender}
+      {'name': 'gender', 'value': gender},
+      {'name': 'rr', 'value':'1.00'}
     ];
 
     var guideline = [
@@ -460,7 +356,8 @@ function setAnchors() {
       {'name': 'history', 'value': 10},
       {'name': 'comorbidity', 'value': 2},
       {'name': 'race', 'value': race},
-      {'name': 'gender', 'value': gender}
+      {'name': 'gender', 'value': gender},
+      {'name': 'rr', 'value': '1.00'}
     ];
 
     var never = [
@@ -468,7 +365,8 @@ function setAnchors() {
       {'name': 'history', 'value': 10},
       {'name': 'comorbidity', 'value': 3},
       {'name': 'race', 'value': race},
-      {'name': 'gender', 'value': gender}
+      {'name': 'gender', 'value': gender},
+      {'name':'rr', 'value':'1.00'}
     ];
 
     var always_str = makeInputsIdString(always).replace('#', 66);
@@ -628,46 +526,6 @@ function buildCostGraph() {
         .attr('data-legend', "cost");
 }
 
-// function updateCostGraph(){
-//     var cost_data = _.map(filtered_data, function(item) {return _.pick(item, 'age', 'cost');});
-//
-//     var starting = 0;
-//     var ending = _.findIndex(cost_data, function(item){
-//       return item['cost'] > 99;
-//     });
-//
-//     if (ending < 0) {
-//       ending = 19;
-//     }
-//     cost_data = _.rest(_.first(cost_data, ending + 1), starting);
-//
-//     var xScale = d3.scale.linear()
-//         .domain([66,85])
-//         .range([45+margins.left,width-margins.right]);
-//
-//     var yScale = d3.scale.linear()
-//         .domain([99,1])
-//         .range([padding, height-padding - margins.bottom]);
-//
-//     var cost_line = d3.select('.costline');
-//
-//     var costLineGen = d3.svg.line()
-//         .defined(function(d) {
-//           return d;
-//         })
-//         .x(function(d) {
-//           return xScale(d.age);
-//         })
-//         .y(function(d) {
-//           return yScale(d['cost']);
-//         });
-//
-//     cost_line
-//         .transition()
-//         .attr('d', costLineGen(cost_data));
-//
-// }
-
 function fillTable(){
     $('.table-cell').each(function(){
 
@@ -675,8 +533,7 @@ function fillTable(){
         var outcome = classes[1];
         var patient = classes[2];
         if (patient == 'patient') {
-            var age = parseInt($('#table-age').find(":selected").val());
-            console.log(age);
+            var age = $('#table-age').find(":selected").val();
             var val = _.findWhere(table_data, {'age': age})[outcome];
         } else{
             var val = _.findWhere(anchors, {'patient_type': patient})[outcome];
