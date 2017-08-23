@@ -81,6 +81,7 @@ $(document).ready(function(){
 
 });
 
+$("#ommitted-alert").hide();
 
 
 // When the inputs are changed, change the graph
@@ -262,9 +263,17 @@ function makeInputsIdString(ins) {
 
 function updateLineGraph() {
 
+    $("#ommitted-alert").hide();
     var harms = _.map(graph_data, function(item) {return _.pick(item, 'age', harmvar);});
     var benefits = _.map(graph_data, function(item) {return _.pick(item, 'age', benefitvar);});
+    var harmmax = _.max(harms, function(p){return p[harmvar]})[harmvar];
+    var benmax = _.max(benefits, function(p){return p[benefitvar]})[benefitvar];
+    console.log(harmmax);
 
+    if (harmmax > current_max || benmax > current_max) {
+        console.log("$$$$$$");
+        $('#ommitted-alert').show();
+    }
 
     var xScale = d3.scale.linear()
       .domain([66,85])

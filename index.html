@@ -138,8 +138,11 @@
             <h3>Compare the deaths or cases of colorectal cancer that are prevented to the number of complications</h3>
             <div class="row">
                 <div class="col-xs-12 col-sm-10 col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2 col-sm-offset-1">
+                    <div class="alert alert-warning" id="ommitted-alert" role="alert">
+                        <p>
+                            <strong>Warning:</strong> Some data not visible. <a href="#table">Use the table below to see precise numbers for all data.</a></p>
+                    </div>
                     <div id="harm-ben-graph"></div>
-                    <!-- <div class="line-legend"></div> -->
                 </div>
             </div>
             <div class="row">
@@ -242,18 +245,21 @@
                                 <a class="comorbidity-popover" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-html="true"><i class="fa fa-question-circle-o" aria-hidden="true" style="font-size:inherit"></i></a>
                             </span>,
                             <span>
-                                and has <select class="selectpicker" id="graph-rr" name="rr">
+                                and has a background cancer risk <a class="rr-popover" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-html="true" data-content="<strong>Rules of thumb for risk levels:</strong><br /><i>0.5 x average risk</i>: Patient with healthy lifestyle and long-term aspirin use. <br />  <i>2 x average risk</i>: Patient with a 1st degree relative with colorectal cancer. <br /> <i>3.5 x average risk</i>: Patient with a personal history of high-risk adenomas."><i class="fa fa-question-circle-o" aria-hidden="true" style="font-size:inherit"></i></a> of <select class="selectpicker" id="graph-rr" name="rr">
                                     <option value="0.50">
-                                        Below Average
+                                        0.5 x average risk
                                     </option>
                                     <option value="1.00">
-                                        Average
+                                        Average risk
                                     </option>
-                                    <option value="3.00">
-                                        Above Average
+                                    <option value="2.00">
+                                        2 x average risk
+                                    </option>
+                                    <option value="3.50">
+                                        3.5 x average risk
                                     </option>
                                 </select>
-                                background cancer risk.
+
                             </span>
                             </p>
                             <div class="comorbidity-popover-content hide">
@@ -405,19 +411,23 @@
                                 </select>
                             ,</span>
                             <span>
-                                and has <select class="selectpicker" id="graph-rr" name="rr">
+                                and has a background cancer risk <a class="rr-popover" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-html="true" data-content="<strong>Rules of thumb for risk levels:</strong><br /><i>0.5 x average risk</i>: Patient with healthy lifestyle and long-term aspirin use. <br />  <i>2 x average risk</i>: Patient with a 1st degree relative with colorectal cancer. <br /> <i>3.5 x average risk</i>: Patient with a personal history of high-risk adenomas."><i class="fa fa-question-circle-o" aria-hidden="true" style="font-size:inherit"></i></a> of <select class="selectpicker" id="graph-rr" name="rr">
                                     <option value="0.50">
-                                        Below Average
+                                        0.5 x average risk
                                     </option>
                                     <option value="1.00">
-                                        Average
+                                        average risk
                                     </option>
-                                    <option value="3.00">
-                                        Above Average
+                                    <option value="2.00">
+                                        2 x average risk
+                                    </option>
+                                    <option value="3.50">
+                                        3.5 x average risk
                                     </option>
                                 </select>
-                                background cancer risk.
+                                .
                             </span>
+
                         </p>
                 </form>
         </div>
