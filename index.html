@@ -142,6 +142,7 @@
                         <p>
                             <strong>Warning:</strong> Some data not visible. <a href="#table">Use the table below to see precise numbers for all data.</a></p>
                     </div>
+
                     <div id="harm-ben-graph"></div>
                 </div>
             </div>
@@ -279,59 +280,62 @@
 
     </section>
     <div class="sep bg-dark" id='table'></div>
-    <section class="section table-section bg-grey">
+    <section class="section table-section">
         <div class="container" id="table-container">
             <div class='col-xs-12 col-sm-10 col-md-8 col-lg-8 col-sm-offset-1 col-md-offset-2 col-lg-offset-2'>
     <div class="row">
-    <table class="table table-stripped">
-      <thead>
-        <th>Events per 1000 screenings</th>
-        <th class="col-md-2">Your patient</th>
-        <th class="col-md-2">Low Benefit patient
-        <a class="info-popover" data-trigger="hover" data-toggle="popover" data-placement="bottom" data-content="An 85 year old patient with a prior screening colonoscopy 10 years ago and moderate comorbidities will recieve very little benefit from screening."><i class="fa fa-question-circle-o" aria-hidden="true"></i></a></th>
-        <th class="col-md-2">High Benefit patient
-        <a class="info-popover" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="A 66 year old who has never been screened and has no comorbidities will greatly benefit from screening."><i class="fa fa-question-circle-o" aria-hidden="true"></i></a>
-        </th>
-        <th class="col-md-2">Guideline patient
-          <a class="info-popover" data-toggle="popover" data-trigger="hover" data-placement="left" data-content="A 75 year old with a prior screening and moderate comorbidities is the threshold example for when to stop screening. Current guidelines would recommend screening this patient but not anyone older."><i class="fa fa-question-circle-o" aria-hidden="true"></i></a>
-        </th>
-      </thead>
-      <tr>
-        <td>Cases Prevented</td>
-        <td><span class="table-cell cases_prevent patient"></span></td>
-        <td><span class="table-cell cases_prevent never"></span></td>
-        <td><span class="table-cell cases_prevent always"></span></td>
-        <td><span class="table-cell cases_prevent guideline"></span></td>
-      </tr>
-      <tr>
-        <td>Deaths Prevented</td>
-        <td><span class="table-cell deaths_prevent patient"></span></td>
-        <td><span class="table-cell deaths_prevent never"></span></td>
-        <td><span class="table-cell deaths_prevent always"></span></td>
-        <td><span class="table-cell deaths_prevent guideline"></span></td>
-      </tr>
-      <tr>
-        <td>Cardiovascular Complications:</td>
-        <td><span class="table-cell cardio patient"></span></td>
-        <td><span class="table-cell cardio never"></span></td>
-        <td><span class="table-cell cardio always"></span></td>
-        <td><span class="table-cell cardio guideline"></span></td>
-      </tr>
-      <tr>
-        <td>Serious GI Complications:</td>
-        <td><span class="table-cell serious_gi patient"></span></td>
-        <td><span class="table-cell serious_gi never"></span></td>
-        <td><span class="table-cell serious_gi always"></span></td>
-        <td><span class="table-cell serious_gi guideline"></span></td>
-      </tr>
-      <tr>
-        <td>Other GI complications:</td>
-        <td><span class="table-cell other_gi patient"></span></td>
-        <td><span class="table-cell other_gi never"></span></td>
-        <td><span class="table-cell other_gi always"></span></td>
-        <td><span class="table-cell other_gi guideline"></span></td>
-      </tr>
-    </table>
+        <div class="table pre-scrollable">
+            <table class="table table-stripped">
+              <thead>
+                <th>Events per 1000 screenings</th>
+                <th class="col-md-2">Your patient</th>
+                <th class="col-md-2">Low Benefit patient
+                <a class="info-popover" data-trigger="hover" data-toggle="popover" data-placement="bottom" data-content="An 85 year old patient with a prior screening colonoscopy 10 years ago and moderate comorbidities will recieve very little benefit from screening."><i class="fa fa-question-circle-o" aria-hidden="true"></i></a></th>
+                <th class="col-md-2">High Benefit patient
+                <a class="info-popover" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="A 66 year old who has never been screened and has no comorbidities will greatly benefit from screening."><i class="fa fa-question-circle-o" aria-hidden="true"></i></a>
+                </th>
+                <th class="col-md-2">Guideline patient
+                  <a class="info-popover" data-toggle="popover" data-trigger="hover" data-placement="left" data-content="A 75 year old with a prior screening and moderate comorbidities is the threshold example for when to stop screening. Current guidelines would recommend screening this patient but not anyone older."><i class="fa fa-question-circle-o" aria-hidden="true"></i></a>
+                </th>
+              </thead>
+              <tr>
+                <td>Cases Prevented</td>
+                <td><span class="table-cell cases_prevent patient"></span></td>
+                <td><span class="table-cell cases_prevent never"></span></td>
+                <td><span class="table-cell cases_prevent always"></span></td>
+                <td><span class="table-cell cases_prevent guideline"></span></td>
+              </tr>
+              <tr>
+                <td>Deaths Prevented</td>
+                <td><span class="table-cell deaths_prevent patient"></span></td>
+                <td><span class="table-cell deaths_prevent never"></span></td>
+                <td><span class="table-cell deaths_prevent always"></span></td>
+                <td><span class="table-cell deaths_prevent guideline"></span></td>
+              </tr>
+              <tr>
+                <td>Cardiovascular Complications:</td>
+                <td><span class="table-cell cardio patient"></span></td>
+                <td><span class="table-cell cardio never"></span></td>
+                <td><span class="table-cell cardio always"></span></td>
+                <td><span class="table-cell cardio guideline"></span></td>
+              </tr>
+              <tr>
+                <td>Serious GI Complications:</td>
+                <td><span class="table-cell serious_gi patient"></span></td>
+                <td><span class="table-cell serious_gi never"></span></td>
+                <td><span class="table-cell serious_gi always"></span></td>
+                <td><span class="table-cell serious_gi guideline"></span></td>
+              </tr>
+              <tr>
+                <td>Other GI complications:</td>
+                <td><span class="table-cell other_gi patient"></span></td>
+                <td><span class="table-cell other_gi never"></span></td>
+                <td><span class="table-cell other_gi always"></span></td>
+                <td><span class="table-cell other_gi guideline"></span></td>
+              </tr>
+            </table>
+        </div>
+
             </div>
             <div class="row">
             <div class="square">
@@ -532,18 +536,24 @@
               <p>
                   The results and recommendations about colonoscopy screening provided by this site are intended to inform but do not replace clinical judgment. Screening decisions should be individualized and determined after discussion between the patient and their care provider.
               </p>
-              <form action="https://formspree.io/jacobsolomon15@gmail.com" method="POST">
-                <h4>Contact us with questions or comments</h4>
-                <ul class="list-unstyled">
-                    <li><input type="text" name="name" placeholder="Your name ..." size="50"></li>
-                    <li><input type="email" name="_replyto" placeholder="Email ..." size="50"></li>
-                    <li><textarea name="comment" placeholder="Type your comment here ..." rows="10" cols="50"></textarea></li>
-                    <li><input type="submit" value="Send"></li>
-                </ul>
-              </form>
             </div>
         </div>
     </section>
+    <section class="section">
+        <div class="container">
+            <div class="col-xs-12 col-md-10">
+                <form action="https://formspree.io/jacobsolomon15@gmail.com" method="POST">
+                  <h4>Contact us with questions or comments</h4>
+                  <ul class="list-unstyled">
+                      <li><input type="text" name="name" placeholder="Your name ..." size="20"></li>
+                      <li><input type="email" name="_replyto" placeholder="Email ..." size="20"></li>
+                      <li><textarea name="comment" placeholder="Type your comment here ..." rows="10" cols="20"></textarea></li>
+                      <li><input type="submit" value="Send"></li>
+                  </ul>
+                </form>
+            </div>
+        </div>
+    </section>"
 
 
 
@@ -604,7 +614,7 @@
 
     <script>
     $('.selectpicker').selectpicker({
-        width: 'auto',
+        width: '150px',
         mobile: true,
         showTick:true
     });

@@ -10,6 +10,16 @@ pointer-events: none;
     }
 }
 
+/*@media (max-width: 576px) {
+    .graph-container {
+        height:300px;
+        width:400px;
+    }
+}*/
+
+.table {
+    display: block;
+}
 /* Fix the axis styling */
 .axis path,
 .axis line {
@@ -140,4 +150,11 @@ svg:line {
     font-size:.75em;
     color:black;
     line-height: 1em;
+}
+
+
+#harm-ben-graph {
+    height:auto;
+    min-width: 600px;
+    overflow: scroll;
 }
